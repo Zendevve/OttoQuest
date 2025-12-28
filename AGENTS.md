@@ -145,6 +145,36 @@ If no new rule is detected → do not update the file.
 
 ---
 
+## UI Design Principles
+
+Reference: [Laws of UX](docs/Design/laws-of-ux.md)
+
+### Key Principles to Follow
+
+| Principle | Application |
+|-----------|-------------|
+| **Hick's Law** | Limit choices — 3 modes, not 10 options |
+| **Miller's Law** | Chunk settings into groups (Mode, Types, Delays) |
+| **Aesthetic-Usability** | Color-coded status, clean visual hierarchy |
+| **Goal-Gradient Effect** | Show progress bars for active quests |
+| **Von Restorff Effect** | Make primary actions visually distinctive |
+| **Jakob's Law** | Follow Discord's UI conventions |
+| **Doherty Threshold** | Provide feedback within 400ms |
+| **Fitts's Law** | Large touch targets, adequate spacing |
+| **Zeigarnik Effect** | Show incomplete quests prominently |
+| **Peak-End Rule** | Celebrate completion with satisfying feedback |
+
+### Design Checklist
+
+- [ ] Does the UI reduce cognitive load?
+- [ ] Are related elements visually grouped?
+- [ ] Is progress clearly indicated?
+- [ ] Do primary actions stand out?
+- [ ] Is feedback immediate?
+- [ ] Does it follow Discord's patterns?
+
+---
+
 ## Project Context
 
 ### What is OttoQuest?
