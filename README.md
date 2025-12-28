@@ -1,6 +1,6 @@
 # OttoQuest
 
-**The Definitive Discord Quest Completer for Vencord/Equicord**
+**The Definitive Discord Quest Completer for Equicord/Vencord**
 
 Automatically complete all Discord quests with zero interaction — or take full control with manual mode.
 
@@ -16,40 +16,85 @@ Automatically complete all Discord quests with zero interaction — or take full
 | 📱 **Mobile Fix** | Converts mobile-only quests to desktop |
 | ⚡ **Parallel** | Complete multiple quests simultaneously |
 | 🔔 **Notifications** | Alerts when quests complete |
-
-## Safety Controls
-
-- **Per-quest-type toggles** — Enable/disable video, game, stream, or activity completion
-- **Configurable delays** — Slow down completion for more natural behavior
-- **Random variation** — Adds +/-50% to delays for realism
-- **Control Panel** — Visual UI for manual quest management
+| 📊 **Progress Bars** | Live progress tracking in Control Panel |
 
 ## Installation
 
-### For Vencord
+### ⚠️ Prerequisites
 
-```bash
-# Clone into userplugins
-git clone https://github.com/Zendevve/OttoQuest.git ~/.config/Vencord/src/userplugins/ottoquest
+1. **Git** installed
+2. **Node.js LTS** installed
+3. **pnpm** installed: `npm i -g pnpm`
+4. **Equicord built from source** (see below)
 
-# Build Vencord
-cd ~/.config/Vencord && pnpm build
-```
+---
 
-### For Equicord
+### Step 1: Build Equicord from Source
 
-```bash
-git clone https://github.com/Zendevve/OttoQuest.git ~/.config/Equicord/src/userplugins/ottoquest
-cd ~/.config/Equicord && pnpm build
-```
+> ⚠️ Do NOT use admin/root terminal. Clone in a folder you'll remember (like Documents).
 
-### Windows
-
+**Windows:**
 ```powershell
-git clone https://github.com/Zendevve/OttoQuest.git %appdata%\Vencord\src\userplugins\ottoquest
+cd "%USERPROFILE%/Documents"
+git clone https://github.com/Equicord/Equicord
+cd Equicord
+pnpm install --no-frozen-lockfile
+pnpm build
+pnpm inject
 ```
 
-After cloning, enable **OttoQuest** in Discord: `Settings → Vencord → Plugins`
+**Linux/macOS:**
+```bash
+cd "$HOME/Documents"
+git clone https://github.com/Equicord/Equicord
+cd Equicord
+pnpm install --no-frozen-lockfile
+pnpm build
+pnpm inject
+```
+
+---
+
+### Step 2: Install OttoQuest
+
+**Navigate to userplugins folder and clone:**
+
+```bash
+cd src/userplugins
+git clone https://github.com/Zendevve/OttoQuest.git ottoquest
+```
+
+**Verify structure is correct:**
+```
+✅ Correct:
+Equicord/src/userplugins/ottoquest/index.ts
+
+❌ Incorrect:
+Equicord/src/userplugins/ottoquest/ottoquest/index.ts
+Equicord/src/userplugins/index.ts
+```
+
+---
+
+### Step 3: Rebuild & Restart
+
+```bash
+cd ../..   # Back to Equicord root
+pnpm build
+```
+
+Then **restart Discord completely** (Ctrl+R or close and reopen).
+
+---
+
+### Step 4: Enable Plugin
+
+1. Open **Discord Settings**
+2. Go to **Equicord → Plugins**
+3. Search for **"OttoQuest"**
+4. **Enable it** ✅
+
+---
 
 ## Settings
 
@@ -75,24 +120,20 @@ After cloning, enable **OttoQuest** in Discord: `Settings → Vencord → Plugin
 | **Semi-Auto** | Ask first | Automatic | Review before enrolling |
 | **Manual** | Click button | Click button | Full control |
 
-## Project Structure
+## Troubleshooting
 
-```
-ottoquest/
-├── index.ts              # Main plugin entry
-├── settings.ts           # Plugin settings
-├── core/
-│   └── QuestManager.ts   # Quest orchestration
-├── completers/
-│   ├── VideoCompleter.ts
-│   ├── GameCompleter.ts
-│   ├── StreamCompleter.ts
-│   └── ActivityCompleter.ts
-├── components/
-│   └── ControlPanel.tsx  # Manual control UI
-└── utils/
-    ├── logger.ts
-    └── stores.ts
+### Plugin not showing up?
+
+1. Make sure you're in `src/userplugins/` (not `src/equicordplugins/`)
+2. Verify folder structure has `ottoquest/index.ts` directly
+3. Run `pnpm build` again
+4. Restart Discord completely
+
+### Need Developer plugins?
+
+Build with:
+```bash
+pnpm build --dev
 ```
 
 ## License
