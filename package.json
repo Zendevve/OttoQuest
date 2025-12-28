@@ -1,0 +1,25 @@
+{
+  "name": "ottoquest",
+  "version": "1.0.0",
+  "description": "The definitive Discord quest completer for Vencord/Equicord",
+  "main": "index.ts",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "vencord",
+    "equicord",
+    "discord",
+    "quest",
+    "plugin"
+  ],
+  "author": "OttoQuest",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "typescript": "^5.0.0"
+  }
+}

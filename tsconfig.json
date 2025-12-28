@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
+        "jsx": "react-jsx",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "declaration": false,
+        "declarationMap": false,
+        "noEmit": true,
+        "baseUrl": ".",
+        "paths": {
+            "@webpack": ["./types/vencord.d.ts"],
+            "@webpack/common": ["./types/vencord.d.ts"],
+            "@api/Settings": ["./types/vencord.d.ts"],
+            "@api/Notifications": ["./types/vencord.d.ts"],
+            "@utils/types": ["./types/vencord.d.ts"]
+        },
+        "typeRoots": ["./types", "./node_modules/@types"]
+    },
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+        "types/**/*.d.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
